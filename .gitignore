@@ -1,0 +1,3 @@
+*.tmp
+docs/css/gb.css
+docs/js/jquery-*.js
