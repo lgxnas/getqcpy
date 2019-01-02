@@ -30,11 +30,12 @@ def save_info(name,bianhao,guobiaohao,nongdu,youxiaoqi):
 	f = open('./list.txt','a',encoding='utf-8')
 	f.write(slist)
 	f.close()
+	print(name+'|'+bianhao)
 	
 def format1(res,istart):
 	iend=res.text.find('</td><td>现货',istart)
 	temp=res.text[istart+4:iend]
-	wd_rep=[' 20ml 水质标样</a>',' 30ml 水质标样</a>',' 10ml 有机物监测标样</a>',' 20ml 质量控制用标准样品</a>',' 有机物监测标样</a>']
+	wd_rep=[' 20ml 水质标样</a>',' 30ml 水质标样</a>',' 10ml 有机物监测标样</a>',' 20ml 质量控制用标准样品</a>',' 有机物监测标样</a>',' 20mL 空气监测标样（水剂)</a>']
 	temp=temp.replace('</td><td>','|')
 	for i_wd_rep in range(len(wd_rep)):
 		temp=temp.replace(wd_rep[i_wd_rep],'')
@@ -64,7 +65,7 @@ def while_error(res,istart):
 	
 	
 def main():
-	temp_url=["cu","pb","zn","cd","fe","mn","ni","k","na","ca","mg","六价铬","总铬","油","ph","电导","总磷","氨氮","阴离子","挥发酚","总氮","COD"]
+	temp_url=["cu","pb","zn","cd","fe","mn","ni","k","na","ca","mg","六价铬","总铬","油","ph","电导","总磷","氨氮","阴离子","挥发酚","总氮","COD","氮氧化物"]
 	for i in range(len(temp_url)):
 		url='http://www.hb-erm.com/?key='+temp_url[i]+'&cate=334&m=goods&a=search'
 		#print(url)
