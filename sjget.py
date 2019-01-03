@@ -35,7 +35,7 @@ def save_info(name,bianhao,guobiaohao,nongdu,youxiaoqi):
 def format1(res,istart):
 	iend=res.text.find('</td><td>现货',istart)
 	temp=res.text[istart+4:iend]
-	wd_rep=[' 20ml 水质标样</a>',' 30ml 水质标样</a>',' 10ml 有机物监测标样</a>',' 20ml 质量控制用标准样品</a>',' 有机物监测标样</a>',' 20mL 空气监测标样（水剂)</a>']
+	wd_rep=[' 20ml 水质标样</a>',' 30ml 水质标样</a>',' 10ml 有机物监测标样</a>',' 20ml 质量控制用标准样品</a>',' 有机物监测标样</a>',' 20mL 空气监测标样 (水剂)</a>']
 	temp=temp.replace('</td><td>','|')
 	for i_wd_rep in range(len(wd_rep)):
 		temp=temp.replace(wd_rep[i_wd_rep],'')
