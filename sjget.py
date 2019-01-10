@@ -65,7 +65,7 @@ def while_error(res,istart):
 	
 	
 def main():
-	temp_url=["cu","pb","zn","cd","fe","mn","ni","k","na","ca","mg","六价铬","总铬","油","ph","电导","总磷","氨氮","阴离子","挥发酚","总氮","COD","氮氧化物"]
+	temp_url=["cu","pb","zn","cd","fe","mn","ni","k","na","ca","mg","六价铬","总铬","油","ph","电导","总磷","氨氮","阴离子","挥发酚","总氮","COD","氮氧化物","硝酸盐"]
 	for i in range(len(temp_url)):
 		url='http://www.hb-erm.com/?key='+temp_url[i]+'&cate=334&m=goods&a=search'
 		#print(url)
