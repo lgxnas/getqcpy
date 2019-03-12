@@ -27,6 +27,6 @@ if [ $mdf -gt 0 ];then
 	ft
 	/usr/bin/git add .
 	/usr/bin/git commit -m "$new"
-	${gitdir}/git push >/dev/null
+	${gitdir}/git push origin master>/dev/null
 	${gitdir}/git push gitee master>/dev/null
 fi
