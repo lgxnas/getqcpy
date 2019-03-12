@@ -24,8 +24,9 @@ function ft()
 }
 if [ $mdf -gt 0 ];then
 	new=`cat today.tmp`
+	ft
 	/usr/bin/git add .
 	/usr/bin/git commit -m "$new"
 	${gitdir}/git push >/dev/null
-	ft
+	${gitdir}/git push gitee master>/dev/null
 fi
