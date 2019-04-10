@@ -17,6 +17,8 @@ function ft()
 		id=`sed -n $i"p" today.tmp`
 		ftdesp=$ftdesp"
 	      	"$i". "`grep $id zhikong.txt|awk -F "|" '{print $1"|"$2"|"$4}'`"
+
+
 	      	"
 	done
 	curl -s "http://sc.ftqq.com/$key.send?text=$title" -d "&desp=$ftdesp" >>./ft.log
@@ -24,6 +26,7 @@ function ft()
 }
 if [ $mdf -gt 0 ];then
 	new=`cat today.tmp`
+	`date +%s` >/home/lgx/py/version
 	ft
 	/usr/bin/git add .
 	/usr/bin/git commit -m "$new"
