@@ -26,7 +26,7 @@ function ft()
 }
 if [ $mdf -gt 0 ];then
 	new=`cat today.tmp`
-	`date +%s` >/home/lgx/py/version
+	date +%s >/home/lgx/py/version
 	ft
 	/usr/bin/git add .
 	/usr/bin/git commit -m "$new"
