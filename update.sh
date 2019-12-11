@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pydir=/home/lgx/py
+pydir=/root/project/getqcpy
 gitdir=/usr/bin
 
 cd ${pydir}
