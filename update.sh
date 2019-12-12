@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pydir=/root/project/getqcpy
+pydir=/root/getqcpy
 gitdir=/usr/bin
 
 cd ${pydir}
@@ -11,7 +11,7 @@ function ft()
 {
 	title="密码样更新"
         key=`cat ftsckey`
-        ftdesp="GCP-La by Lgx"
+        ftdesp="TCS by Lgx"
         for((i=1;i<=$mdf;i++))
         do
 		id=`sed -n $i"p" today.tmp`
@@ -21,12 +21,18 @@ function ft()
 
 	      	"
 	done
-	curl -s "http://sc.ftqq.com/$key.send?text=$title" -d "&desp=$ftdesp" >>./ft.log
-	echo `date +%F' '%T` >>./ft.log
+	FT_JSON=$(curl -s "http://sc.ftqq.com/$key.send?text=$title" -d "&desp=$ftdesp")
+# >>./ft.log
+#	echo `date +%F' '%T` >>./ft.log
+	if [ $(echo ${FT_JSON}|grep success|wc -l) -eq 0 ];then
+        	echo -e "$(date +%F' '%T)\n${FT_JSON}\n" >> ${pydir}/ft.log
+        	exit
+	fi
 }
+
 if [ $mdf -gt 0 ];then
 	new=`cat today.tmp`
-	date +%s >/home/lgx/py/version
+	date +%s >${pydir}/version
 	ft
 	/usr/bin/git add .
 	/usr/bin/git commit -m "$new"
